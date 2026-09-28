@@ -1,0 +1,119 @@
+---
+interface ExperienceItem {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  current: boolean;
+  points: string[];
+  tech: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    role: "Backend Developer",
+    company: "LogicPlum",
+    location: "Kochi, Kerala, India",
+    period: "August 2023 - Present",
+    current: true,
+    points: [
+      "Designed and implemented event-driven microservices using Apache Kafka and ZooKeeper, developing Kafka producers and consumers for asynchronous inter-service communication, real-time event handling, and background processing handling thousands of messages daily.",
+      "Developed a BRD-generating LLM chatbot using Mistral 7B, TinyLLaMA, and LLaVA, automating requirement documentation and reducing manual BRD preparation effort by 70%.",
+      "Designed and implemented automated UI, API, and E2E test suites using Playwright, increasing automated test coverage by 85% and reducing release-related issues by 30% across multiple browsers.",
+      "Implemented Celery with Redis for asynchronous task processing and caching, reducing API response times by 30% and improving system reliability.",
+      "Designed and automated ETL and batch data processing workflows using Python and Apache Airflow, improving data availability and reducing manual intervention.",
+      "Implemented centralized logging and monitoring using the ELK Stack (Elasticsearch, Logstash, Kibana), boosting application observability and troubleshooting efficiency.",
+    ],
+    tech: ["Python", "FastAPI", "Apache Kafka", "ZooKeeper", "Mistral 7B", "Playwright", "Celery", "Redis", "Apache Airflow", "ELK Stack"],
+  },
+  {
+    role: "Junior Backend Developer",
+    company: "CIED Technologies",
+    location: "Kochi, Kerala, India",
+    period: "August 2022 - February 2023",
+    current: false,
+    points: [
+      "Developed and maintained RESTful APIs integrated with frontend applications, managing database operations, query optimization, authentication, and server-side business logic.",
+      "Implemented authentication and authorization mechanisms using JWT and role-based access control (RBAC), enhancing application security.",
+      "Mitigated common web vulnerabilities including SQL Injection, XSS, and CSRF through secure coding practices and input validation.",
+      "Integrated third-party services and external APIs, automating workflows and enhancing platform capabilities.",
+      "Contributed to CI/CD pipelines, deployment automation, production monitoring, and issue resolution in Linux-based environments.",
+    ],
+    tech: ["Python", "Django", "Flask", "REST APIs", "PostgreSQL", "MySQL", "JWT", "RBAC", "CI/CD", "Linux"],
+  },
+];
+---
+
+<section id="experience" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Career Journey</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Work Experience</h3>
+
+    <div class="space-y-8">
+      {
+        experiences.map((exp) => (
+          <div class="border border-[#ffffff10] rounded-2xl p-6 md:p-8 bg-[#14141460] hover:border-[var(--sec)] transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+              <div>
+                <div class="flex items-center gap-3">
+                  <h4 class="text-2xl font-bold text-[var(--white)]">{exp.role}</h4>
+                  {exp.current && (
+                    <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[#A9FF5B20] text-[#A9FF5B] border border-[#A9FF5B40]">
+                      Current
+                    </span>
+                  )}
+                </div>
+                <p class="text-lg text-[var(--sec)] font-medium">
+                  {exp.company} <span class="text-sm text-[var(--white-icon)]">({exp.location})</span>
+                </p>
+              </div>
+              <span class="text-xs md:text-sm font-medium px-3 py-1.5 rounded-full bg-[#1414149c] border border-[var(--white-icon-tr)] text-[var(--white-icon)] w-fit">
+                {exp.period}
+              </span>
+            </div>
+
+            <ul class="space-y-3 mb-6 text-sm md:text-base text-[var(--white-icon)]">
+              {exp.points.map((point) => (
+                <li class="flex items-start gap-2.5 leading-relaxed">
+                  <span class="text-[var(--sec)] mt-1.5 shrink-0 text-xs">◆</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-[#ffffff0a]">
+              {exp.tech.map((t) => (
+                <span class="py-1 px-3 text-xs rounded-lg bg-[#1414149c] text-[var(--white-icon)] border border-[var(--white-icon-tr)]">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Education Section -->
+    <div class="mt-12">
+      <h3 class="text-2xl md:text-3xl font-medium mb-6 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-7 text-[var(--sec)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+          <path d="M22 10v6"/>
+          <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+        </svg>
+        Education
+      </h3>
+      <div class="border border-[#ffffff10] rounded-2xl p-6 md:p-8 bg-[#14141460]">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+          <div>
+            <h4 class="text-xl md:text-2xl font-bold text-[var(--white)]">Bachelor of Engineering in Computer Science</h4>
+            <p class="text-base md:text-lg text-[var(--sec)] mt-1">APJ Abdul Kalam Technological University</p>
+          </div>
+          <span class="text-xs md:text-sm font-medium px-3.5 py-1.5 rounded-full bg-[#1414149c] border border-[var(--white-icon-tr)] text-[var(--white-icon)] w-fit">
+            2017 - 2021
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
